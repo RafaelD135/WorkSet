@@ -1,0 +1,8 @@
+[
+    {
+        "id": 1,
+        "name": "Workspace 1",
+        "description": "This is workspace 1",
+        "tasks" : ["1", "2", "3"]
+    }
+]
