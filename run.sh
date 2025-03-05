@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Compile the Java files
-javac @compile.list @arg.list
+javac -cp "libs/*" @compile.list @arg.list
 
 # Run the controller class
-java -cp class Controller
+java -cp "class:libs/*"  Controller
