@@ -20,13 +20,21 @@ public class WebPageLauncher extends Task {
     public void launchWebPage(OSType osType) {
         if (osType == OSType.WINDOWS) {
             try {
-                new ProcessBuilder("cmd", "/c", "start", this.url).start();
+                if(this.url == null) {
+                    new ProcessBuilder("cmd", "/c", "start", "https://www.google.com/").start();
+                } else {
+                    new ProcessBuilder("cmd", "/c", "start", this.url).start();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else if (osType == OSType.LINUX) {
             try {
-                new ProcessBuilder("firefox", this.url).start();
+                if(this.url == null) {
+                    new ProcessBuilder("xdg-open", "https://www.google.com/").start();
+                } else {
+                    new ProcessBuilder("xdg-open", this.url).start();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
