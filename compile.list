@@ -1,0 +1,8 @@
+src/model/OSType.java
+src/model/Task.java
+src/model/WorkSpace.java
+src/model/tasks/TerminalLauncher.java
+src/model/tasks/FileExplorerLauncher.java
+src/model/tasks/WebPageLauncher.java
+src/model/tasks/VsCodeLauncher.java
+src/Controller.java
