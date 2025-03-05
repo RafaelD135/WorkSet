@@ -20,10 +20,22 @@ public class FileExplorerLauncher extends Task {
     public void launchFileExplorer(OSType osType)
     {
         if (osType == OSType.WINDOWS) {
-            // TO DO
+            try {
+                if(this.projectPath == null) {
+                    new ProcessBuilder("explorer.exe").start();
+                } else {
+                    new ProcessBuilder("explorer.exe", this.projectPath).start();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else if (osType == OSType.LINUX) {
             try {
-                new ProcessBuilder("xdg-open", this.projectPath).start();
+                if(this.projectPath == null) {
+                    new ProcessBuilder("xdg-open").start();
+                } else {
+                    new ProcessBuilder("xdg-open", this.projectPath).start();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
