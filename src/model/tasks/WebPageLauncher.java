@@ -19,7 +19,11 @@ public class WebPageLauncher extends Task {
 
     public void launchWebPage(OSType osType) {
         if (osType == OSType.WINDOWS) {
-            // TO DO
+            try {
+                new ProcessBuilder("cmd", "/c", "start", this.url).start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else if (osType == OSType.LINUX) {
             try {
                 new ProcessBuilder("firefox", this.url).start();
