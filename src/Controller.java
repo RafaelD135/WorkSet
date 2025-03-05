@@ -1,6 +1,6 @@
 import model.WorkSpace;
 import model.Task;
-import model.tasks.VsCodeLauncher;
+import model.tasks.WebPageLauncher;
 
 public class Controller {
     public static void main(String[] args) {
@@ -8,8 +8,8 @@ public class Controller {
         WorkSpace workSpace = new WorkSpace();
 
         // Add a new task to the WorkSpace
-        Task vsCodeLauncher = new VsCodeLauncher("/path/to/project");
-        workSpace.addTask(vsCodeLauncher);
+        Task webPage = new WebPageLauncher("https://www.youtube.com/");
+        workSpace.addTask(webPage);
 
         // Launch the WorkSpace
         workSpace.launchWorkSpace();
