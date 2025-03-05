@@ -1,6 +1,6 @@
 [
     {
-        "id" : 1,
+        "id" : 0,
         "title" : "Task 1",
         "description" : "Description 1",
         "type" : "Terminal",
@@ -8,7 +8,7 @@
         "terminal" : "default"
     },
     {
-        "id" : 2,
+        "id" : 1,
         "title" : "Task 2",
         "description" : "Description 2",
         "type" : "WebPage",
@@ -16,14 +16,14 @@
         "browser" : "firefox"
     },
     {
-        "id" : 3,
+        "id" : 2,
         "title" : "Task 3",
         "description" : "Description 3",
         "type" : "VsCode",
         "path" : "projectPath/project"
     },
     {
-        "id" : 4,
+        "id" : 3,
         "title" : "Task 4",
         "description" : "Description 4",
         "type" : "FileExplorer",
