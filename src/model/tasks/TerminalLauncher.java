@@ -20,10 +20,22 @@ public class TerminalLauncher extends Task {
     public void launchTerminal(OSType osType)
     {
         if (osType == OSType.WINDOWS) {
-            // TO DO
+            try {
+                if(this.projectPath == null) {
+                    new ProcessBuilder("cmd", "/c", "start", "powershell", "-NoExit", "-Command", "cd C:\\").start();
+                } else {
+                    new ProcessBuilder("powershell", "-NoExit", "-Command", "Start-Process powershell -ArgumentList '-NoExit', '-Command cd \"" + this.projectPath + "\"'").start();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else if (osType == OSType.LINUX) {
             try {
-                new ProcessBuilder("gnome-terminal", "--working-directory=" + this.projectPath).start();
+                if(this.projectPath == null) {
+                    new ProcessBuilder("gnome-terminal").start();
+                } else {
+                    new ProcessBuilder("gnome-terminal", "--working-directory=" + this.projectPath).start();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
