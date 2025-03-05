@@ -19,10 +19,22 @@ public class VsCodeLauncher extends Task {
     public void launchVsCode(OSType osType)
     {
         if (osType == OSType.WINDOWS) {
-            // TO DO
+            try {
+                if(this.projectPath == null) {
+                    new ProcessBuilder("cmd", "/c", "start", "code").start();
+                } else {
+                    new ProcessBuilder("cmd", "/c", "start", "code", this.projectPath).start();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         } else if (osType == OSType.LINUX) {
             try {
-                new ProcessBuilder("code", this.projectPath).start();
+                if(this.projectPath == null) {
+                    new ProcessBuilder("code").start();
+                } else {
+                    new ProcessBuilder("code", this.projectPath).start();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
