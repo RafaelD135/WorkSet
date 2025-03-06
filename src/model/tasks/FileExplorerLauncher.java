@@ -62,4 +62,12 @@ public class FileExplorerLauncher extends Task {
     public String getProjectPath() {
         return projectPath;
     }
+
+    // ToString for debugging
+    public String toString() {
+        return "FileExplorerLauncher{" +
+                "projectPath='" + projectPath + '\'' +
+                ", fileExplorer='" + fileExplorer + '\'' +
+                '}';
+    }
 }

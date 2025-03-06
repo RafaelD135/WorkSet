@@ -62,4 +62,12 @@ public class TerminalLauncher extends Task {
     public String getProjectPath() {
         return projectPath;
     }
+
+    // ToString for debugging
+    public String toString() {
+        return "TerminalLauncher{" +
+                "projectPath='" + projectPath + '\'' +
+                ", terminalType='" + terminalType + '\'' +
+                '}';
+    }
 }

@@ -61,4 +61,12 @@ public class WebPageLauncher extends Task {
     public String getBrowser() {
         return browser;
     }
+
+    // ToString for debugging
+    public String toString() {
+        return "WebPageLauncher{" +
+                "url='" + url + '\'' +
+                ", browser='" + browser + '\'' +
+                '}';
+    }
 }

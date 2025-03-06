@@ -49,4 +49,11 @@ public class VsCodeLauncher extends Task {
     public String getProjectPath() {
         return projectPath;
     }
+
+    // ToString for debugging
+    public String toString() {
+        return "VsCodeLauncher{" +
+                "projectPath='" + projectPath + '\'' +
+                '}';
+    }
 }
