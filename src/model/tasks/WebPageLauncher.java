@@ -11,7 +11,11 @@ public class WebPageLauncher extends Task {
     private String browser;
 
     public WebPageLauncher(String url, String id) {
-        this.url = url;
+        if(url.equals("null")) {
+            this.url = null;
+        } else {
+            this.url = url;
+        }
 
         if(id != null) {
             this.id = id;

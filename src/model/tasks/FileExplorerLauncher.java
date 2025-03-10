@@ -11,7 +11,12 @@ public class FileExplorerLauncher extends Task {
     private String fileExplorer;
 
     public FileExplorerLauncher(String projectPath, String id) {
-        this.projectPath = projectPath;
+        if(projectPath.equals("null")) {
+            this.projectPath = null;
+        } else {
+            this.projectPath = projectPath;
+        }
+        
         if(id != null) {
             this.id = id;
         } else {

@@ -11,7 +11,11 @@ public class TerminalLauncher extends Task {
     private String terminalType;
 
     public TerminalLauncher(String projectPath, String id) {
-        this.projectPath = projectPath;
+        if(projectPath.equals("null")) {
+            this.projectPath = null;
+        } else {
+            this.projectPath = projectPath;
+        }
 
         if(id != null) {
             this.id = id;
