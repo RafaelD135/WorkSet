@@ -61,6 +61,7 @@ public class VsCodeLauncher extends Task {
     public String toString() {
         return "VsCodeLauncher{" +
                 "projectPath='" + projectPath + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 }

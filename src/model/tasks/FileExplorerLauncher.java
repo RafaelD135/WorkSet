@@ -74,6 +74,7 @@ public class FileExplorerLauncher extends Task {
         return "FileExplorerLauncher{" +
                 "projectPath='" + projectPath + '\'' +
                 ", fileExplorer='" + fileExplorer + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 }

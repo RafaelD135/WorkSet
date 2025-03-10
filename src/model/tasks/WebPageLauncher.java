@@ -74,6 +74,7 @@ public class WebPageLauncher extends Task {
         return "WebPageLauncher{" +
                 "url='" + url + '\'' +
                 ", browser='" + browser + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 }

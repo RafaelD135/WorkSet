@@ -75,6 +75,7 @@ public class TerminalLauncher extends Task {
         return "TerminalLauncher{" +
                 "projectPath='" + projectPath + '\'' +
                 ", terminalType='" + terminalType + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 }
