@@ -58,6 +58,15 @@ public class Controller {
         public String id;
     }
 
+    public Task getTaskById(String id) {
+        for (Task task : tasks) {
+            if (task.getId().equals(id)) {
+                return task;
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.loadTasks();
