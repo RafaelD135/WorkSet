@@ -4,13 +4,20 @@ import model.OSType;
 import model.Task;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class TerminalLauncher extends Task {
     private String projectPath;
     private String terminalType;
 
-    public TerminalLauncher(String projectPath) {
+    public TerminalLauncher(String projectPath, String id) {
         this.projectPath = projectPath;
+
+        if(id != null) {
+            this.id = id;
+        } else {
+            this.id = UUID.randomUUID().toString();
+        }
     }
 
     public void launchTask(OSType osType) {

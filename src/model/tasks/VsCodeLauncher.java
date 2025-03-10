@@ -4,12 +4,19 @@ import model.OSType;
 import model.Task;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class VsCodeLauncher extends Task {
     private String projectPath;
 
-    public VsCodeLauncher(String projectPath) {
+    public VsCodeLauncher(String projectPath, String id) {
         this.projectPath = projectPath;
+
+        if(id != null) {
+            this.id = id;
+        } else {
+            this.id = UUID.randomUUID().toString();
+        }
     }
 
     public void launchTask(OSType osType) {

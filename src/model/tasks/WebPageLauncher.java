@@ -4,13 +4,20 @@ import model.OSType;
 import model.Task;
 
 import java.io.IOException;
+import java.util.UUID;
 
 public class WebPageLauncher extends Task {
     private String url;
     private String browser;
 
-    public WebPageLauncher(String url) {
+    public WebPageLauncher(String url, String id) {
         this.url = url;
+
+        if(id != null) {
+            this.id = id;
+        } else {
+            this.id = UUID.randomUUID().toString();
+        }
     }
 
     public void launchTask(OSType osType) {

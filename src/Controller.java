@@ -22,16 +22,16 @@ public class Controller {
             for (TaskData taskData : taskDataList) {
                 switch (taskData.type) {
                     case "Terminal":
-                        tasks.add(new TerminalLauncher(taskData.path));
+                        tasks.add(new TerminalLauncher(taskData.path,taskData.id));
                         break;
                     case "WebPage":
-                        tasks.add(new WebPageLauncher(taskData.url));
+                        tasks.add(new WebPageLauncher(taskData.url,taskData.id));
                         break;
                     case "VsCode":
-                        tasks.add(new VsCodeLauncher(taskData.path));
+                        tasks.add(new VsCodeLauncher(taskData.path,taskData.id));
                         break;
                     case "FileExplorer":
-                        tasks.add(new FileExplorerLauncher(taskData.path));
+                        tasks.add(new FileExplorerLauncher(taskData.path,taskData.id));
                         break;
                 }
             }
@@ -55,6 +55,7 @@ public class Controller {
         public String type;
         public String path;
         public String url;
+        public String id;
     }
 
     public static void main(String[] args) {
