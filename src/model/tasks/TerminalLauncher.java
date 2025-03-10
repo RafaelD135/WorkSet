@@ -10,11 +10,7 @@ public class TerminalLauncher extends Task {
     private String projectPath;
 
     public TerminalLauncher(String projectPath, String id) {
-        if(projectPath.equals("null")) {
-            this.projectPath = null;
-        } else {
-            this.projectPath = projectPath;
-        }
+        this.projectPath = projectPath;
 
         if(id != null) {
             this.id = id;
