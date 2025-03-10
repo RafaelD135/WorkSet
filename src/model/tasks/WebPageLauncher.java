@@ -8,7 +8,6 @@ import java.util.UUID;
 
 public class WebPageLauncher extends Task {
     private String url;
-    private String browser;
 
     public WebPageLauncher(String url, String id) {
         if(url.equals("null")) {
@@ -52,9 +51,6 @@ public class WebPageLauncher extends Task {
         }
     }
 
-    public void detectDefaultBrowser() {
-        // TO DO
-    }
 
     // GET and SET methods
     public void setUrl(String url) {
@@ -65,19 +61,10 @@ public class WebPageLauncher extends Task {
         return url;
     }
 
-    public void setBrowser(String browser) {
-        this.browser = browser;
-    }
-
-    public String getBrowser() {
-        return browser;
-    }
-
     // ToString for debugging
     public String toString() {
         return "WebPageLauncher{" +
                 "url='" + url + '\'' +
-                ", browser='" + browser + '\'' +
                 ", id='" + id + '\'' +
                 '}';
     }

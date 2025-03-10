@@ -8,7 +8,6 @@ import java.util.UUID;
 
 public class FileExplorerLauncher extends Task {
     private String projectPath;
-    private String fileExplorer;
 
     public FileExplorerLauncher(String projectPath, String id) {
         if(projectPath.equals("null")) {
@@ -16,7 +15,7 @@ public class FileExplorerLauncher extends Task {
         } else {
             this.projectPath = projectPath;
         }
-        
+
         if(id != null) {
             this.id = id;
         } else {
@@ -58,14 +57,6 @@ public class FileExplorerLauncher extends Task {
     }
 
     // GET and SET methods
-    public void setFileExplorer(String fileExplorer) {
-        this.fileExplorer = fileExplorer;
-    }
-
-    public String getFileExplorer() {
-        return fileExplorer;
-    }
-
     public void setProjectPath(String projectPath) {
         this.projectPath = projectPath;
     }
@@ -78,7 +69,6 @@ public class FileExplorerLauncher extends Task {
     public String toString() {
         return "FileExplorerLauncher{" +
                 "projectPath='" + projectPath + '\'' +
-                ", fileExplorer='" + fileExplorer + '\'' +
                 ", id='" + id + '\'' +
                 '}';
     }

@@ -4,16 +4,14 @@
         "title" : "Task 1",
         "description" : "Description 1",
         "type" : "Terminal",
-        "path" : "/home/user/Documents",
-        "terminal" : "default"
+        "path" : "/home/user/Documents"
     },
     {
         "id" : 1,
         "title" : "Task 2",
         "description" : "Description 2",
         "type" : "WebPage",
-        "url" : "https://www.google.com",
-        "browser" : "firefox"
+        "url" : "https://www.google.com"
     },
     {
         "id" : 2,
@@ -27,7 +25,6 @@
         "title" : "Task 4",
         "description" : "Description 4",
         "type" : "FileExplorer",
-        "path" : "/home/user/Documents",
-        "fileExplorer" : "default"
+        "path" : "/home/user/Documents"
     }
 ]

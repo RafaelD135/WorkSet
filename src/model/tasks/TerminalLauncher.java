@@ -8,7 +8,6 @@ import java.util.UUID;
 
 public class TerminalLauncher extends Task {
     private String projectPath;
-    private String terminalType;
 
     public TerminalLauncher(String projectPath, String id) {
         if(projectPath.equals("null")) {
@@ -53,19 +52,8 @@ public class TerminalLauncher extends Task {
         }
     }
 
-    public void detectDefaultTerminal() {
-        // TO DO
-    }
 
     // GET and SET methods
-    public void setTerminalType(String terminalType) {
-        this.terminalType = terminalType;
-    }
-
-    public String getTerminalType() {
-        return terminalType;
-    }
-
     public void setProjectPath(String projectPath) {
         this.projectPath = projectPath;
     }
@@ -78,7 +66,6 @@ public class TerminalLauncher extends Task {
     public String toString() {
         return "TerminalLauncher{" +
                 "projectPath='" + projectPath + '\'' +
-                ", terminalType='" + terminalType + '\'' +
                 ", id='" + id + '\'' +
                 '}';
     }
