@@ -42,7 +42,7 @@ public class FileExplorerLauncher extends Task {
         } else if (osType == OSType.LINUX) {
             try {
                 if(this.projectPath == null) {
-                    new ProcessBuilder("xdg-open").start();
+                    new ProcessBuilder("xdg-open", "/").start();
                 } else {
                     new ProcessBuilder("xdg-open", this.projectPath).start();
                 }
