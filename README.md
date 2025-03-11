@@ -15,15 +15,11 @@ Une application Java permettant de créer, gérer et lancer des espaces de trava
 
 ---
 
-## ⚡ Exemples de Tâches Personnalisées  
+## ⚡ Exemple de Tâche Personnalisée
 
 - **Démarrer un serveur local**  
   ```bash
   python -m http.server 8000
-  ```
-- **Ouvrir une playlist YouTube**  
-  ```bash
-  firefox "https://www.youtube.com/playlist?list=XXXXXX"
   ```
 
 ---
