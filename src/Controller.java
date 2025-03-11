@@ -1,3 +1,4 @@
+import model.OSType;
 import model.Task;
 import model.WorkSpace;
 import model.tasks.TerminalLauncher;
@@ -26,19 +27,28 @@ public class Controller {
             for (TaskData taskData : taskDataList) {
                 switch (taskData.type) {
                     case "Terminal":
-                        tasks.add(new TerminalLauncher(taskData.path,taskData.id));
+                        tasks.add(new TerminalLauncher(taskData.projectPath,taskData.id));
                         break;
                     case "WebPage":
                         tasks.add(new WebPageLauncher(taskData.url,taskData.id));
                         break;
                     case "VsCode":
-                        tasks.add(new VsCodeLauncher(taskData.path,taskData.id));
+                        tasks.add(new VsCodeLauncher(taskData.projectPath,taskData.id));
                         break;
                     case "FileExplorer":
-                        tasks.add(new FileExplorerLauncher(taskData.path,taskData.id));
+                        tasks.add(new FileExplorerLauncher(taskData.projectPath,taskData.id));
                         break;
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void saveTasks() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            objectMapper.writeValue(new File("data/tasks/tasks.json"), tasks);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -57,7 +67,7 @@ public class Controller {
     @JsonIgnoreProperties(ignoreUnknown = true)
     private static class TaskData {
         public String type;
-        public String path;
+        public String projectPath;
         public String url;
         public String id;
     }
