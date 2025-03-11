@@ -21,6 +21,8 @@ public class WebPageLauncher extends Task {
         } else {
             this.id = UUID.randomUUID().toString();
         }
+
+        this.type = "WebPage";
     }
 
     public void launchTask(OSType osType) {

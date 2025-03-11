@@ -17,6 +17,8 @@ public class TerminalLauncher extends Task {
         } else {
             this.id = UUID.randomUUID().toString();
         }
+
+        this.type = "Terminal";
     }
 
     public void launchTask(OSType osType) {

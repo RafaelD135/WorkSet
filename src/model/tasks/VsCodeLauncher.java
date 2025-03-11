@@ -21,6 +21,8 @@ public class VsCodeLauncher extends Task {
         } else {
             this.id = UUID.randomUUID().toString();
         }
+
+        this.type = "VsCode";
     }
 
     public void launchTask(OSType osType) {

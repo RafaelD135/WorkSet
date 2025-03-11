@@ -21,6 +21,8 @@ public class FileExplorerLauncher extends Task {
         } else {
             this.id = UUID.randomUUID().toString();
         }
+
+        this.type = "FileExplorer";
     }
 
     public void launchTask(OSType osType) {
