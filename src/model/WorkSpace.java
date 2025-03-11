@@ -1,13 +1,20 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class WorkSpace {
     private OSType osType;
     private int nbTask;
+    private String id;
     private ArrayList<Task> tasks;
 
-    public WorkSpace() {
+    public WorkSpace(String id) {
+        if(id != null) {
+            this.id = id;
+        } else {
+            this.id = UUID.randomUUID().toString();
+        }
         this.nbTask = 0;
         this.tasks = new ArrayList<Task>();
         detectOs();
