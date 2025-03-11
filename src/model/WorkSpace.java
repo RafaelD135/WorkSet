@@ -45,7 +45,6 @@ public class WorkSpace {
         this.nbTask--;
     }
 
-
     // GET and SET methods
     public OSType getOsType() {
         return osType;
@@ -53,5 +52,14 @@ public class WorkSpace {
 
     public int getNbTask() {
         return this.nbTask;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("WorkSpace ").append(this.id).append(" : ").append(this.nbTask).append(" tasks\n");
+        for (Task task : tasks) {
+            sb.append(task.toString()).append("\n");
+        }
+        return sb.toString();
     }
 }
