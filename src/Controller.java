@@ -1,8 +1,10 @@
 import model.Task;
+import model.WorkSpace;
 import model.tasks.TerminalLauncher;
 import model.tasks.WebPageLauncher;
 import model.tasks.VsCodeLauncher;
 import model.tasks.FileExplorerLauncher;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -14,7 +16,9 @@ import java.util.List;
 
 public class Controller {
     public List<Task> tasks = new ArrayList<>();
+    public List<WorkSpace> workSpaces = new ArrayList<>();
 
+    // Gestion des tasks
     public void loadTasks() {
         ObjectMapper mapper = new ObjectMapper();
         try {
@@ -67,9 +71,48 @@ public class Controller {
         return null;
     }
 
+    // Gestion des WorkSpaces
+    public void loadWorkSpaces() {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            List<WorkSpaceData> workSpaceDataList = mapper.readValue(new File("data/workSpaces/workspaces.json"), new TypeReference<List<WorkSpaceData>>() {});
+            for (WorkSpaceData workSpaceData : workSpaceDataList) {
+                WorkSpace workSpace = new WorkSpace(workSpaceData.id);
+                for (String taskId : workSpaceData.tasks) {
+                    Task task = getTaskById(taskId);
+                    if (task != null) {
+                        workSpace.addTask(task);
+                    }
+                }
+                workSpaces.add(workSpace);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void printWorkSpaces() {
+        if (workSpaces.isEmpty()) {
+            System.out.println("No workspaces loaded.");
+            return;
+        }
+        for (WorkSpace workSpace : workSpaces) {
+            System.out.println(workSpace);
+        }
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    private static class WorkSpaceData {
+        public String id;
+        public List<String> tasks;
+    }
+
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.loadTasks();
-        controller.printTasks();
+        // controller.printTasks();
+        controller.loadWorkSpaces();
+        controller.printWorkSpaces();
+        controller.workSpaces.get(0).launchWorkSpace();
     }
 }
