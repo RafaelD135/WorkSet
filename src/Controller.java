@@ -81,6 +81,32 @@ public class Controller {
         return null;
     }
 
+    public void createTask(String type, String projectPath, String url,WorkSpace workSpace) {
+        Task task = null;
+        switch (type) {
+            case "Terminal":
+                task = new TerminalLauncher(projectPath,null);
+                break;
+            case "WebPage":
+                task = new WebPageLauncher(url,null);
+                break;
+            case "VsCode":
+                task = new VsCodeLauncher(projectPath,null);
+                break;
+            case "FileExplorer":
+                task = new FileExplorerLauncher(projectPath,null);
+                break;
+        }
+        if (task != null) {
+            tasks.add(task);
+            saveTasks();
+        }
+        if(workSpace != null) {
+            workSpace.addTask(task);
+            // saveWorkspaces
+        }
+    }
+
     // Gestion des WorkSpaces
     public void loadWorkSpaces() {
         ObjectMapper mapper = new ObjectMapper();
