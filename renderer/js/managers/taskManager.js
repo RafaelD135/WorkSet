@@ -4,24 +4,33 @@ export const taskTypes = [
 	{
 		type: 'Terminal',
 		label: 'Terminal',
-		fields: ['projectPath']
+		fields: [
+			{ name: 'projectPath', type: 'text', label: 'Chemin du projet' },
+		]
 	},
 	{
 		type: 'WebPage',
 		label: 'Page Web',
-		fields: ['url']
+		fields: [
+			{ name: 'url', type: 'url', label: 'URL de la page' }
+		]
 	},
 	{
 		type: 'VsCode',
 		label: 'VS Code',
-		fields: ['projectPath']
+		fields: [
+			{ name: 'projectPath', type: 'text', label: 'Chemin du projet' }
+		]
 	},
 	{
 		type: 'FileExplorer',
 		label: 'Explorateur de fichiers',
-		fields: ['projectPath']
+		fields: [
+			{ name: 'projectPath', type: 'text', label: 'Chemin du projet' }
+		]
 	}
 ];
+
 
 export function loadTasks() {
 	const data = window.api.lireJson('data/tasks.json');
