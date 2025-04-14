@@ -1,0 +1,27 @@
+[
+    {
+        "id": "0",
+        "type": "Terminal",
+        "projectPath": "/home/rafael/Documents"
+    },
+    {
+        "id": "1",
+        "type": "WebPage",
+        "url": "https://www.google.com"
+    },
+    {
+        "id": "2",
+        "type": "VsCode",
+        "projectPath": "projectPath/project"
+    },
+    {
+        "id": "3",
+        "type": "FileExplorer",
+        "projectPath": "/home/rafael/Documents"
+    },
+    {
+        "id": "88a66f89-50da-4bbf-9d2f-bd504de4aa33",
+        "type": "Terminal",
+        "projectPath": "/Users/debei/Desktop"
+    }
+]
