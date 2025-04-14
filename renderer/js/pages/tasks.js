@@ -1,5 +1,5 @@
 import { loadTasks } from '../managers/taskManager.js';
-import { taskTypes } from '../managers/taskManager.js';
+import { taskTypes } from '../managers/taskTypes.js';
 
 export function render(container) {
 	const tasksContainer = document.createElement('div');
@@ -131,13 +131,11 @@ function updateFields(container, taskType) {
 
 	selectedTaskType.fields.forEach(field => {
 		const label = document.createElement('label');
-		label.setAttribute('for', field);
-		label.textContent = `${field.charAt(0).toUpperCase() + field.slice(1)} :`;
+		label.textContent = field.label + ' :';
 
 		const input = document.createElement('input');
-		input.type = 'text';
-		input.name = field;
-		input.id = field;
+		input.type = field.type;
+		input.name = field.name;
 
 		container.appendChild(label);
 		container.appendChild(input);
