@@ -1,4 +1,5 @@
 import { loadTasks } from '../managers/taskManager.js';
+import { taskTypes } from '../managers/taskManager.js';
 
 export function render(container) {
 	const tasksContainer = document.createElement('div');
@@ -8,6 +9,16 @@ export function render(container) {
 	const tasks = loadTasks();
 
 	displayTasks(tasks);
+
+	const addTaskButton = document.createElement('button');
+	addTaskButton.textContent = 'Ajouter une tâche';
+	addTaskButton.className = 'add-task-button';
+
+	addTaskButton.addEventListener('click', () => {
+		displayCreateTaskForm(container);
+	});
+	
+	tasksContainer.appendChild(addTaskButton);
 }
 
 function displayTasks(tasks) {
@@ -45,4 +56,90 @@ function createTaskCard(task) {
 
 	card.innerHTML = content;
 	return card;
+}
+
+function displayCreateTaskForm(container) {
+	container.innerHTML = '';
+
+	const formTitle = document.createElement('h1');
+	formTitle.textContent = "Créer une nouvelle tâche";
+	container.appendChild(formTitle);
+
+	const form = document.createElement('form');
+	form.id = 'task-form';
+
+	const typeLabel = document.createElement('label');
+	typeLabel.setAttribute('for', 'type');
+	typeLabel.textContent = "Type de tâche :";
+	form.appendChild(typeLabel);
+
+	const typeSelect = document.createElement('select');
+	typeSelect.name = 'type';
+	typeSelect.id = 'type';
+
+	taskTypes.forEach(taskType => {
+		const option = document.createElement('option');
+		option.value = taskType.type;
+		option.textContent = taskType.label;
+		typeSelect.appendChild(option);
+	});
+
+	form.appendChild(typeSelect);
+	
+	const fieldsContainer = document.createElement('div');
+	fieldsContainer.id = 'fields-container';
+	form.appendChild(fieldsContainer);
+
+	typeSelect.addEventListener('change', () => {
+		updateFields(fieldsContainer, typeSelect.value);
+	});
+
+	updateFields(fieldsContainer, typeSelect.value);
+
+	const submitButton = document.createElement('button');
+	submitButton.type = 'submit';
+	submitButton.textContent = "Créer la tâche";
+	form.appendChild(submitButton);
+
+	container.appendChild(form);
+
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		
+		const formData = new FormData(form);
+		const newTask = {
+			type: formData.get('type'),
+		};
+	
+		const selectedTaskType = taskTypes.find(taskType => taskType.type === newTask.type);
+		selectedTaskType.fields.forEach(field => {
+			newTask[field] = formData.get(field);
+		});
+	
+		console.log('Tâche créée :', newTask);
+		// saveTask(newTask);
+		
+		form.reset();
+		container.innerHTML = '<p>Tâche créée avec succès !</p>';
+	});
+}
+
+function updateFields(container, taskType) {
+	container.innerHTML = '';
+
+	const selectedTaskType = taskTypes.find(type => type.type === taskType);
+
+	selectedTaskType.fields.forEach(field => {
+		const label = document.createElement('label');
+		label.setAttribute('for', field);
+		label.textContent = `${field.charAt(0).toUpperCase() + field.slice(1)} :`;
+
+		const input = document.createElement('input');
+		input.type = 'text';
+		input.name = field;
+		input.id = field;
+
+		container.appendChild(label);
+		container.appendChild(input);
+	});
 }
