@@ -25,3 +25,14 @@ export function launchTask(taskId) {
 	
 	window.api.launchTask(task);
 }
+
+export function updateTask(taskId, updatedTask) {
+	const taskIndex = tasks.findIndex(t => t.id === taskId);
+	if (taskIndex === -1) {
+		console.error(`Task with ID ${taskId} not found.`);
+		return;
+	}
+	
+	tasks[taskIndex] = { ...tasks[taskIndex], ...updatedTask };
+	saveTask();
+}

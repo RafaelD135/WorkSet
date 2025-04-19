@@ -1,7 +1,8 @@
 import { launchTask, loadTasks } from '../managers/taskManager.js';
 import { renderCreateTaskForm } from './createTaskForm.js';
+import { renderUpdateTaskForm } from './updateTaskForm.js';
 
-export function render(container) {
+export function renderTasks(container) {
 	const tasksContainer = document.createElement('div');
 	tasksContainer.id = 'task-list';
 	container.appendChild(tasksContainer);
@@ -63,6 +64,13 @@ function createTaskCard(task) {
 	}
 
 	card.appendChild(launchButton);
+
+	const updateButton = document.createElement('button');
+	updateButton.textContent = 'Modifier';
+	updateButton.onclick = () => {
+		renderUpdateTaskForm(card.parentNode, task);
+	}
+	card.appendChild(updateButton);
 
 	return card;
 }

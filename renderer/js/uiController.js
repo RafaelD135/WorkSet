@@ -18,7 +18,7 @@ function switchView(view) {
 			workspaces.render(container);
 			break;
 		case 'tasks':
-			tasks.render(container);
+			tasks.renderTasks(container);
 			break;
 	}
 }
