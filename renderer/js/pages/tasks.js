@@ -1,8 +1,9 @@
-import { launchTask, loadTasks } from '../managers/taskManager.js';
+import { launchTask, loadTasks, deleteTask } from '../managers/taskManager.js';
 import { renderCreateTaskForm } from './createTaskForm.js';
 import { renderUpdateTaskForm } from './updateTaskForm.js';
 
 export function renderTasks(container) {
+	container.innerHTML = '';
 	const tasksContainer = document.createElement('div');
 	tasksContainer.id = 'task-list';
 	container.appendChild(tasksContainer);
@@ -19,7 +20,7 @@ export function renderTasks(container) {
 		renderCreateTaskForm(container);
 	});
 	
-	tasksContainer.appendChild(addTaskButton);
+	container.appendChild(addTaskButton);
 }
 
 function displayTasks(tasks) {
@@ -71,6 +72,15 @@ function createTaskCard(task) {
 		renderUpdateTaskForm(card.parentNode, task);
 	}
 	card.appendChild(updateButton);
+
+	const deleteButton = document.createElement('button');
+	deleteButton.textContent = 'Supprimer';
+	deleteButton.onclick = () => {
+		deleteTask(task.id);
+		const contentContainer = document.getElementById('content');
+		renderTasks(contentContainer);
+	}
+	card.appendChild(deleteButton);
 
 	return card;
 }

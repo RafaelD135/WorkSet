@@ -36,3 +36,14 @@ export function updateTask(taskId, updatedTask) {
 	tasks[taskIndex] = { ...tasks[taskIndex], ...updatedTask };
 	saveTask();
 }
+
+export function deleteTask(taskId) {
+	const taskIndex = tasks.findIndex(t => t.id === taskId);
+	if (taskIndex === -1) {
+		console.error(`Task with ID ${taskId} not found.`);
+		return;
+	}
+	
+	tasks.splice(taskIndex, 1);
+	saveTask();
+}
