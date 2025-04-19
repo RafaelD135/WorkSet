@@ -1,4 +1,4 @@
-import { loadTasks } from '../managers/taskManager.js';
+import { loadTasks, launchTask } from '../managers/taskManager.js';
 import { loadWorkspaces } from '../managers/workspaceManager.js';
 
 export function render(container) {
@@ -77,5 +77,14 @@ function createTaskCard(task) {
 	}
 
 	card.innerHTML = content;
+
+	const launchButton = document.createElement('button');
+	launchButton.textContent = 'Lancer';
+	launchButton.onclick = () => {
+		launchTask(task.id);
+	}
+
+	card.appendChild(launchButton);
+
 	return card;
 }
