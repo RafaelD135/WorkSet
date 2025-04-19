@@ -27,3 +27,5 @@ document.getElementById('btn-home').addEventListener('click', () => switchView('
 document.getElementById('btn-settings').addEventListener('click', () => switchView('settings'));
 document.getElementById('btn-workspaces').addEventListener('click', () => switchView('workspaces'));
 document.getElementById('btn-tasks').addEventListener('click', () => switchView('tasks'));
+
+switchView('home');
