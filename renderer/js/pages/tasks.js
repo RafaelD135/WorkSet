@@ -1,4 +1,4 @@
-import { loadTasks } from '../managers/taskManager.js';
+import { launchTask, loadTasks } from '../managers/taskManager.js';
 import { taskTypes } from '../managers/taskTypes.js';
 import { addTask } from '../managers/taskManager.js';
 
@@ -56,6 +56,15 @@ function createTaskCard(task) {
 	}
 
 	card.innerHTML = content;
+
+	const launchButton = document.createElement('button');
+	launchButton.textContent = 'Lancer';
+	launchButton.onclick = () => {
+		launchTask(task.id);
+	}
+	
+	card.appendChild(launchButton);
+
 	return card;
 }
 

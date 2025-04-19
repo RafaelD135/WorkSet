@@ -15,3 +15,13 @@ export function addTask(task) {
 export function saveTask() {
 	window.api.ecrireJson('data/tasks.json', tasks);
 }
+
+export function launchTask(taskId) {
+	const task = tasks.find(t => t.id === taskId);
+	if (!task) {
+		console.error(`Task with ID ${taskId} not found.`);
+		return;
+	}
+	
+	window.api.launchTask(task);
+}
