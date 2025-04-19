@@ -1,5 +1,6 @@
 import { loadTasks } from '../managers/taskManager.js';
 import { taskTypes } from '../managers/taskTypes.js';
+import { addTask } from '../managers/taskManager.js';
 
 export function render(container) {
 	const tasksContainer = document.createElement('div');
@@ -110,14 +111,17 @@ function displayCreateTaskForm(container) {
 		const newTask = {
 			type: formData.get('type'),
 		};
+
+		console.log(newTask);
 	
 		const selectedTaskType = taskTypes.find(taskType => taskType.type === newTask.type);
 		selectedTaskType.fields.forEach(field => {
-			newTask[field] = formData.get(field);
+			newTask[field.name] = formData.get(field.name);
+			console.log(field, newTask[field]);
 		});
 	
 		console.log('Tâche créée :', newTask);
-		// saveTask(newTask);
+		addTask(newTask);
 		
 		form.reset();
 		container.innerHTML = '<p>Tâche créée avec succès !</p>';
