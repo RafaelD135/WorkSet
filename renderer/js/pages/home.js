@@ -1,7 +1,7 @@
 import { loadTasks, launchTask } from '../managers/taskManager.js';
 import { loadWorkspaces } from '../managers/workspaceManager.js';
 
-export function render(container) {
+export function renderHome(container) {
 	const workspaceContainer = document.createElement('div');
 	workspaceContainer.id = 'workspace-list';
 	container.appendChild(workspaceContainer);

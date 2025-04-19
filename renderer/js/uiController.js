@@ -9,13 +9,13 @@ function switchView(view) {
 
 	switch (view) {
 		case 'home':
-			home.render(container);
+			home.renderHome(container);
 			break;
 		case 'settings':
-			settings.render(container);
+			settings.renderSettings(container);
 			break;
 		case 'workspaces':
-			workspaces.render(container);
+			workspaces.renderWorkspaces(container);
 			break;
 		case 'tasks':
 			tasks.renderTasks(container);

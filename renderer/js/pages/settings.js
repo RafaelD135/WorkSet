@@ -1,4 +1,4 @@
-export function render(container) {
+export function renderSettings(container) {
 	const title = document.createElement('h1');
 	title.textContent = 'Paramètres';
 

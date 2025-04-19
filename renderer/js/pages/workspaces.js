@@ -1,6 +1,6 @@
 import { loadWorkspaces } from '../managers/workspaceManager.js';
 
-export function render(container) {
+export function renderWorkspaces(container) {
 	const workspaceContainer = document.createElement('div');
 	workspaceContainer.id = 'workspace-list';
 	container.appendChild(workspaceContainer);
