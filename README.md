@@ -31,10 +31,14 @@ Créez des tâches personnalisées, organisez-les en espaces de travail, et conc
 ## 📸 Aperçu
 
 ### 🎨 Maquette de l'application
-![Maquette](./docs/mockup.png)
+**Date** : 01/05/2025 (1 Mai 2025)
+
+![Maquette](./docs/app_worket_mockup_01-05-2025.png)
 
 ### 💻 Application en fonctionnement
-![App Screenshot](./docs/app.png)
+**Date** : 01/05/2025 (1 Mai 2025)
+
+![App Screenshot](./docs/app_workset_01-05-2025.gif)
 
 ---
 
