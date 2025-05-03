@@ -6,3 +6,12 @@ export function loadWorkspaces() {
 	return workspaces;
 }
 
+export function addWorkspace(workspace) {
+	workspace['id'] = crypto.randomUUID();
+	workspaces.push(workspace);
+	saveWorkspaces();
+}
+
+export function saveWorkspaces() {
+	window.api.ecrireJson('data/workspaces.json', workspaces);
+}

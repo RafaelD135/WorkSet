@@ -1,4 +1,5 @@
 import { loadWorkspaces } from '../managers/workspaceManager.js';
+import { renderCreateWorkspaceForm } from './createWorkspaceForm.js';
 
 export function renderWorkspaces(container) {
 	const workspaceContainer = document.createElement('div');
@@ -8,6 +9,16 @@ export function renderWorkspaces(container) {
 	const workspaces = loadWorkspaces();
 
 	displayWorkspaces(workspaces);
+
+	const addWorkspaceButton = document.createElement('button');
+	addWorkspaceButton.textContent = 'Ajouter un espace de travail';
+	addWorkspaceButton.className = 'add-workspace-button';
+
+	addWorkspaceButton.addEventListener('click', () => {
+		renderCreateWorkspaceForm(container);
+	});
+
+	container.appendChild(addWorkspaceButton);
 }
 
 function displayWorkspaces(workspaces) {
